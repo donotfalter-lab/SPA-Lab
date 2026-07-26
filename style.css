@@ -194,6 +194,39 @@ body {
   color: #444;
 }
 
+.antonyms-list {
+  font-size: 0.9rem;
+  color: #b3261e;
+}
+
+/* Loading indicator */
+#loading-indicator {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  color: #555;
+  margin-bottom: 1.5rem;
+}
+
+.spinner {
+  width: 16px;
+  height: 16px;
+  border: 2px solid #ccc;
+  border-top-color: #2f6feb;
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+#search-button:disabled,
+#word-input:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 /* Saved words section */
 #saved-words-section {
   margin-top: 2rem;
@@ -252,4 +285,34 @@ body.dark-theme #result-phonetic,
 body.dark-theme .definition-example,
 body.dark-theme .synonyms-list {
   color: #bbb;
+}
+
+body.dark-theme #loading-indicator {
+  color: #ccc;
+}
+
+/* Responsive layout for smaller screens */
+@media (max-width: 480px) {
+  #app-header {
+    padding: 1.5rem 1rem 0.75rem;
+  }
+
+  #theme-toggle-button {
+    position: static;
+    display: block;
+    margin: 0.75rem auto 0;
+  }
+
+  #search-form {
+    flex-direction: column;
+  }
+
+  #word-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  #results {
+    padding: 1rem;
+  }
 }
