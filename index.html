@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Wordly - Interactive Dictionary</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <header id="app-header">
+    <h1>Wordly</h1>
+    <p>Search any word to see its pronunciation, definitions, and synonyms.</p>
+    <button id="theme-toggle-button" aria-label="Toggle light and dark theme">🌙 Dark Mode</button>
+  </header>
+
+  <main id="app-main">
+
+    <!-- Search bar -->
+    <form id="search-form" role="search" aria-label="Word search">
+      <label for="word-input" class="visually-hidden">Search for a word</label>
+      <input
+        type="text"
+        id="word-input"
+        name="word"
+        placeholder="Enter a word..."
+        autocomplete="off"
+        aria-label="Enter a word to search"
+        required
+      >
+      <button type="submit" id="search-button" aria-label="Search for word">Search</button>
+    </form>
+
+    <!-- Error message, hidden until something goes wrong -->
+    <div id="error-message" class="hidden" role="alert" aria-live="assertive"></div>
+
+    <!-- Loading indicator, shown only while a fetch is in flight -->
+    <div id="loading-indicator" class="hidden" role="status" aria-live="polite">
+      <span class="spinner" aria-hidden="true"></span> Searching...
+    </div>
+
+    <!-- Results section -->
+    <section id="results" class="hidden" aria-live="polite">
+
+      <div id="word-header">
+        <h2 id="result-word"></h2>
+        <span id="result-phonetic"></span>
+        <button id="play-audio-button" class="hidden" aria-label="Play pronunciation">🔊 Play</button>
+        <button id="save-word-button" class="hidden" aria-label="Save this word">☆ Save</button>
+      </div>
+
+      <!-- Meanings (one block per part of speech) get inserted here dynamically -->
+      <div id="meanings-container"></div>
+
+    </section>
+
+    <!-- Saved words list -->
+    <section id="saved-words-section" aria-label="Saved words">
+      <h3>Saved Words</h3>
+      <ul id="saved-words-list"></ul>
+    </section>
+
+  </main>
+
+  <script src="index.js"></script>
+</body>
+</html>
